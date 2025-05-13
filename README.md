@@ -18,6 +18,25 @@ The rows with 0 data for all the data bytes was removed because we don't get any
 For the remaining rows the data was converted from the hexal bytes to decimal for proper calculations
 
 ### Feature Engineering
+## 🚗 Feature Engineering for CAN Bus Dataset
+
+The following features were created from the raw CAN data to help train a more efficient and robust machine learning model:
+
+| Feature              | Description                                       | Why It Helps                                                                 |
+|----------------------|---------------------------------------------------|------------------------------------------------------------------------------|
+| `byte_sum`           | Sum of all data bytes (`Data0` to `Data7`)       | Captures overall payload weight; some attacks might alter the sum significantly. |
+| `byte_mean`          | Mean of data bytes                                | Averages out byte values; helps detect small but systemic shifts in data.   |
+| `byte_std`           | Standard deviation of data bytes                 | Indicates how dispersed the byte values are; attacks often increase variance. |
+| `byte_max`           | Max value in data bytes                           | Detects spikes in individual bytes.                                         |
+| `byte_min`           | Min value in data bytes                           | Detects zeroing or nulling attacks.                                        |
+| `byte_diff_maxmin`   | Difference between max and min byte               | Measures range; useful in spotting attacks that affect only extremes.       |
+| `byte_median`        | Median of data bytes                              | Helps when data has outliers or is skewed.                                  |
+| `byte_skew`          | Skewness of byte values                           | Reveals asymmetry; unusual in consistent normal frames.                     |
+| `byte_kurtosis`      | Kurtosis of byte values                           | Indicates how heavy the tails of the distribution are (extreme values).     |
+| `id_encoded`         | Label-encoded `ID` column                         | Converts categorical CAN IDs into numerical format for model input.         |
+
+> These features aim to highlight statistical and structural behaviors in the CAN frame payloads that may signal abnormal or malicious activity.
+
 
 ## EDA Reporting
 Exploratory data analysis was performed that how different attacks are affecting different data bytes. 

@@ -18,7 +18,6 @@ The rows with 0 data for all the data bytes was removed because we don't get any
 For the remaining rows the data was converted from the hexal bytes to decimal for proper calculations
 
 ### Feature Engineering
-## 🚗 Feature Engineering for CAN Bus Dataset
 
 The following features were created from the raw CAN data to help train a more efficient and robust machine learning model:
 

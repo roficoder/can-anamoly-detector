@@ -1,0 +1,15 @@
+1. data collection and cleaning, 
+how data was collected, 
+how we gathered in a file, 
+how we changed the label value for binary classification using label-placer.py
+how we filtered the data using data-cleaner.py
+
+2 - 
+how eda was performed on the data
+how we performed the kda, and kda generation code demonstration from kde.py
+
+
+3. featured engineering from featured_eng.py
+explaining each feature and its derivation
+
+4. Model training from the-four.py and model saving and predicting the data from trained models

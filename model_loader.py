@@ -2,10 +2,10 @@ import pandas as pd
 import joblib
 
 # Load the saved model
-model = joblib.load("can_model.pkl")
+model = joblib.load("trained_modesl/rj48.pkl")
 
 # Example: Load new data (make sure it's processed like before)
-new_data = pd.read_csv("testing_data_converted.csv")
+new_data = pd.read_csv("testing_data.csv")
 
 # Convert hex to integer for prediction
 for col in [f"Data{i}" for i in range(8)]:

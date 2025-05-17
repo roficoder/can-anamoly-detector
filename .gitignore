@@ -1,2 +1,4 @@
 /tf-env
 /.git
+config.bat
+node_modules
